@@ -14,7 +14,7 @@ function BestFriendsQuiz() {
     };
 
     const navigate = useNavigate()
-
+ console.log("helloworld")
     return (
         <>
             <div className='center'>
