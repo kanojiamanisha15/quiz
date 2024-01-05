@@ -6,11 +6,11 @@ const QuestionsPageFriends = () => {
 
   const { questions } = QuestionsListFriends
 
-  const handleSubmit = () => {
-    {questions.map((questionList) => (
-      console.log(questionList)
-    ))}
-  }
+  // const handleSubmit = () => {
+  //   {questions.map((questionList) => (
+  //     console.log(questionList)
+  //   ))}
+  // }
 
   return (
     <div className="quiz-container">
@@ -20,7 +20,7 @@ const QuestionsPageFriends = () => {
           <QAFriends ques={questionList} />
         ))}
       </div>
-      <button onClick={()=>handleSubmit()}>submit</button>
+      <button type='submit'>submit</button>
     </div>
 
   )

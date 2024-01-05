@@ -1,63 +1,83 @@
 import { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 function QA({ ques }) {
+    const [loadedQuestion, setLoadedQuestion] = useState(ques.question)
     const [answers, setAnswers] = useState([])
     const [check, setcheck] = useState(null)
+    // const [checked, setChecked] = useState({});
+    const [correctAnswer, setCorrectAnswer] = useState('')
 
     useEffect(() => {
         setAnswers(ques.choices)
-      
+        console.log(ques.choices, "tttttest")
     }, [])
 
     let deleteButton = (deletingAnswer) => {
-        const newlistAnswers = answers.filter((answer)=>answer!==deletingAnswer)
+        const newlistAnswers = answers.filter((answer) => answer !== deletingAnswer)
         setAnswers(newlistAnswers)
-        console.log(newlistAnswers)
     }
+
+    const onChangeQuestion = (e) => {
+        setLoadedQuestion(e.target.value)
+        console.log(e.target.value, 'manisha');
+    }
+
+    const onChangeInput = (e) => {
+
+        let answersCopy = [...answers]
+        let objIndex = answersCopy.findIndex((obj => obj.id == e.target.id));
+        console.log(answersCopy[objIndex], 'test');
+        answersCopy[objIndex].name = e.target.value
+        setAnswers(answersCopy)
+    }
+
+    // const handleChange = (e) => {
+    //     const value = e.target.value
+    //     const checked = e.target.checked
+    //     console.log(value, checked);
+    //     if (checked) { setCorrectAnswer(value) }
+    // }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log(correctAnswer);
+    // }
 
     const handleChange = (i) => {
         setcheck((prev) => (i === prev ? null : i));
     }
 
-    const onChangeInput = (e) => {
-        const { name, value } = e.target
-
-        const editData = answers.map((item) =>
-            item === name ? { item, [name]: value } : item
-        )
-        setAnswers(editData)
-    }
-
     const [color, setColor] = useState('black')
 
     return (
+
         <div id={ques.id} className='list-holder' style={{ borderStyle: 'solid', borderColor: color, width: 'max-content' }}>
-            <h2><input
+            <input
                 style={{ width: '600px' }}
                 name={ques.question}
                 type="text"
-                onChange={(e) => onChangeInput(e)}
+                onChange={(e) => onChangeQuestion(e)}
                 defaultValue={ques.question}
-            ></input></h2>
+            ></input>
             <ul>
                 {answers.map((answer, i) => (
-                    <li key={i}><input type="checkbox" name='check' onChange={() => handleChange(i)} checked={i === check} />
-                        <span>
-                            <input
-                                name={answer}
-                                type="text"
-                                onChange={(e) => onChangeInput(e)}
-                                value={answer}
-                            ></input>
-                            
-                        </span>
-                        <button onClick={() => deleteButton(answer, i)}>Delete</button>
+                    <li key={i}>
+                        <input type="checkbox" name='check' onChange={() => handleChange(i)} checked={i === check} />
+                        <input
+                            id={answer.id}
+                            name={ques.id + answer.id} //string
+                            type="text"
+                            onChange={(e) => onChangeInput(e)}
+                            value={answer.name}
+                        />
+                        <button onClick={() => deleteButton(answer)}>Delete</button>
                     </li>
                 ))}
             </ul>
 
             <button onClick={() =>
-                setAnswers([...answers, 'None of the above'])
+                setAnswers([...answers, { id: uuidv4(), name: 'None of the above', }])
             }>Add new option</button>
 
             <div className='color-buttons'>
@@ -77,6 +97,7 @@ function QA({ ques }) {
 
             </div>
         </div>
+
     )
 }
 

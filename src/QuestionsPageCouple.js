@@ -7,14 +7,15 @@ function QuestionsPageCouple() {
 
     return (
         <div className="quiz-container">
-            <h1>Quiz</h1>
-            <div className='questions-holder'>
-                {questions.map((question) => (
-                    <QACouple ques={question} />
-                ))}
-            </div>
-
-            <button>submit</button>
+            <form>
+                <h1>Quiz</h1>
+                <div className='questions-holder'>
+                    {questions.map((question) => (
+                        <QACouple ques={question} />
+                    ))}
+                </div>
+                <button type='submit'>Submit</button>
+            </form>
         </div>
     )
 }

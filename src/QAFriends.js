@@ -18,7 +18,7 @@ function QAFriends({ ques }) {
 
   const onChangeInput = (e) => {
     const { name, value } = e.target
-    console.log('name', value)
+    console.log('namee', value)
 
     const editData = answers.map((item) =>
       item === name ? { item, [name]: value } : item
@@ -44,10 +44,11 @@ function QAFriends({ ques }) {
           <li key={i}>
             <input type="checkbox" name='check' onChange={() => handleChange(i)} checked={i === check} />
             <input
-              name={answer}
+              id={answer.id}
+              name={answer.name}
               type="text"
               onChange={(e) => onChangeInput(e)}
-              value={answer}
+              value={answer.name}
             />
             <button onClick={() => deleteButton(answer)}>Delete</button></li>
         ))}
