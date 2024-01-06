@@ -3,6 +3,8 @@ import { Button, Layout, Menu, theme } from 'antd';
 import SideDrawer from './SideDrawer';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { Header } = Layout;
 
@@ -41,27 +43,27 @@ const NavBar = () => {
                     }
                     items={[
                         {
-                            label: 'Blog',
+                            label: 'BLOG',
                             key: "blogPage"
                         },
                         {
-                            label: 'Instagram',
+                            label: <InstagramOutlined style={{ fontSize: '130%'}}/>,
                             key: 'instagram',
                         },
                         {
-                            label: 'Twitter',
+                            label: <TwitterOutlined style={{ fontSize: '130%'}}/>,
                             key: 'twitter'
                         },
                         {
-                            label: 'About Us',
+                            label: 'ABOUT US',
                             key: 'aboutUsPage'
                         },
                         {
-                            label: 'Privacy Policy',
+                            label: 'PRIVACY POLICY',
                             key: 'privacyPage'
                         },
                         {
-                            label: 'Terms of Use',
+                            label: 'TERMS OF USE',
                             key: 'termsofuse'
                         }
                     ]}

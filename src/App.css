@@ -1,26 +1,31 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.ant-drawer-header{
+:where(.css-dev-only-do-not-override-p7e5j5) .ant-menu::after {
+  content: none;
+}
+
+.ant-drawer-header {
   background-color: red;
 }
-.ant-menu-overflow{
+
+.ant-menu-overflow {
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-.ant-drawer-content-wrapper{
-    display: none;
-}
-
-.demo-logo{
+.ant-drawer-content-wrapper {
   display: none;
 }
 
-.ant-layout-header{
+.demo-logo {
+  display: none;
+}
+
+.ant-layout-header {
   padding: 0 30px;
 }
 
@@ -28,24 +33,64 @@
   display: none;
 }
 
-.side-bar{
+.ant-menu-title-content {
+  font-size: 15px;
+}
+
+.side-bar {
   color: white;
+  margin: 0 20px 0 0;
+  font-size: large;
+  font-family: cursive;
+}
+
+:where(.css-dev-only-do-not-override-p7e5j5) .ant-menu::before {
+  content: none;
+}
+
+span .anticon .anticon-unordered-list .icon {
+  display: none;
 }
 
 @media screen and (max-width:900px) {
-  .ant-drawer-content-wrapper{
+  :where(.css-dev-only-do-not-override-p7e5j5).ant-drawer .ant-drawer-header {
+    text-align: center;
+  }
+
+  .anticon-unordered-list {
+    display: none;
+    content: none;
+  }
+
+  h4,
+  p {
+    text-align: center;
+    margin: 20px;
+    font-size: medium;
+  }
+
+  :where(.css-dev-only-do-not-override-p7e5j5).ant-drawer .ant-drawer-body {
+    padding: 0;
+  }
+
+  .ant-drawer-content-wrapper {
     display: block;
   }
+
   .ant-menu-overflow {
     display: none;
   }
+
   .ant-layout-header {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
   }
+
   .icon-bar {
     display: block;
     color: white;
+    font-size: large;
+    font-family: cursive;
   }
 
   .icon {
@@ -56,7 +101,7 @@
     display: none;
   }
 
-  p:hover{
+  p:hover {
     cursor: pointer;
   }
 }
@@ -71,37 +116,37 @@
   object-fit: cover;
 }
 
-p.bold{
+p.bold {
   font-weight: bold;
 }
-p.bold, p.normal{
+
+p.bold,
+p.normal {
   margin-left: 25px;
 }
 
-.ant-form-item .ant-form-item-label{
+.ant-form-item .ant-form-item-label {
   text-align: center;
 }
-.center{
+
+.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-.ant-form-item-explain-error{
+.ant-form-item-explain-error {
   display: none;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before{
+:where(.css-dev-only-do-not-override-p7e5j5).ant-form-item .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
   content: none;
 }
 
 .quiz-container {
-  max-width: 500px;
   min-width: 250px;
-  background: #ffffff;
   border-radius: 4px;
-  margin-top: 100px;
   padding: 30px 60px;
 }
 
@@ -166,4 +211,13 @@ p.bold, p.normal{
 .flex-right {
   display: flex;
   justify-content: flex-end;
+}
+
+.ant-form-item-required {
+  font-family: cursive;
+}
+
+.questions-holder {
+  margin: auto;
+  width: fit-content;
 }

@@ -5,12 +5,10 @@ function QA({ ques }) {
     const [loadedQuestion, setLoadedQuestion] = useState(ques.question)
     const [answers, setAnswers] = useState([])
     const [check, setcheck] = useState(null)
-    // const [checked, setChecked] = useState({});
-    const [correctAnswer, setCorrectAnswer] = useState('')
 
     useEffect(() => {
         setAnswers(ques.choices)
-        console.log(ques.choices, "tttttest")
+        // console.log(ques.choices, "tttttest")
     }, [])
 
     let deleteButton = (deletingAnswer) => {
@@ -20,29 +18,17 @@ function QA({ ques }) {
 
     const onChangeQuestion = (e) => {
         setLoadedQuestion(e.target.value)
-        console.log(e.target.value, 'manisha');
+        // console.log(e.target.value, 'manisha');
     }
 
     const onChangeInput = (e) => {
 
         let answersCopy = [...answers]
         let objIndex = answersCopy.findIndex((obj => obj.id == e.target.id));
-        console.log(answersCopy[objIndex], 'test');
+        // console.log(answersCopy[objIndex], 'test');
         answersCopy[objIndex].name = e.target.value
         setAnswers(answersCopy)
     }
-
-    // const handleChange = (e) => {
-    //     const value = e.target.value
-    //     const checked = e.target.checked
-    //     console.log(value, checked);
-    //     if (checked) { setCorrectAnswer(value) }
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(correctAnswer);
-    // }
 
     const handleChange = (i) => {
         setcheck((prev) => (i === prev ? null : i));
