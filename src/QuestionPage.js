@@ -1,30 +1,34 @@
 import React from 'react'
+import { useState } from 'react'
 import { QuestionsCouple, QuestionsFriends } from './QuestionList'
 import QA from './QA'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { Flex } from 'antd'
 
 function QuestionPage() {
 
-    const location = useLocation();
-
     let questions
-    if (location.state.list == 'QuestionsFriends') {
+
+    const { name } = useParams()
+    if (name === 'friends') {
         questions = QuestionsFriends.questions
     }
-    if (location.state.list == 'QuestionsCouple') {
+    if (name === 'couples') {
         questions = QuestionsCouple.questions
     }
-    // console.log(QuestionsFriends.questions, location.state.list);
+
+    const handleSubmit = () => {
+        console.log(questions);
+    }
 
     return (
         <div className="quiz-container">
-            <h1>Quiz</h1>
             <div className='questions-holder'>
                 {questions.map((question) => (
                     <QA ques={question} />
                 ))}
             </div>
-            <button type='submit'>Submit</button>
+            <button type='submit' onClick={handleSubmit} >Submit</button>
         </div>
     )
 }

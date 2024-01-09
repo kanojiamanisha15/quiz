@@ -4,7 +4,6 @@ import SideDrawer from './SideDrawer';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { Header } = Layout;
 

@@ -168,38 +168,41 @@ p.normal {
   margin: 0;
 }
 
-.quiz-container ul {
-  margin-top: 20px;
-}
-
-.quiz-container ul li {
-  text-decoration: none;
-  list-style: none;
-  color: #2d264b;
-  font-size: 16px;
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  border-radius: 16px;
-  padding: 11px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
 .quiz-container ul .selected-answer {
   background: #ffd6ff;
   border: 1px solid #800080;
 }
 
-.quiz-container button {
-  background: linear-gradient(90.04deg, #800080 0.03%, #ffc0cb 99.96%);
-  border-radius: 9px;
-  font-size: 18px;
-  color: #ffffff;
-  padding: 10px 42px;
-  outline: none;
+.delete-button {
+  background: red;
+  border-radius: 50%;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
   border: none;
   cursor: pointer;
-  margin-top: 15px;
+  display: flex;
+  margin-top: 5px;  
+}
+
+.add-button {
+  background: rgb(142, 219, 98);
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 15px;
+  padding: 10px;
+  height: auto;
+  width: auto;
+  border: none;
+}
+
+.color-button{
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px 15px 15px;
 }
 
 .quiz-container button:disabled {
@@ -220,4 +223,7 @@ p.normal {
 .questions-holder {
   margin: auto;
   width: fit-content;
+}
+.questions:focus{
+    outline: none;
 }

@@ -27,7 +27,7 @@ function QuizEntry() {
     return (
         <>
             <div className='center'>
-                <img width={'40%'} style={{margin:'20px'}} src={location.state.src}></img>
+                <img width={'20%'} style={{margin:'10px'}} src={location.state.src}></img>
                 <h3 style={{margin:'10px', fontFamily:'cursive'}}>{location.state.h1} Quiz</h3>
                 <h4 style={{margin:'10px', fontFamily:'cursive'}}>How well do your {location.state.h2} know you?</h4>
             </div>
